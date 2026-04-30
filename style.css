@@ -1,0 +1,7 @@
+body { margin: 0; background: #000; overflow: hidden; font-family: 'Outfit', sans-serif; }
+#canvas { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; }
+.star { position: absolute; width: 6px; height: 6px; background: #fff; border-radius: 50%; box-shadow: 0 0 15px #fff; cursor: pointer; transition: transform 0.2s; z-index: 5; }
+.star:hover { transform: scale(2); background: #ffcc00; box-shadow: 0 0 25px #ffcc00; }
+.ui { position: fixed; top: 60px; width: 100%; text-align: center; color: #fff; letter-spacing: 0.8rem; text-transform: uppercase; opacity: 0.3; pointer-events: none; }
+h1 { font-weight: 300; margin: 0; }
+.instructions { position: fixed; bottom: 40px; width: 100%; text-align: center; color: #fff; opacity: 0.2; font-size: 0.8rem; }
