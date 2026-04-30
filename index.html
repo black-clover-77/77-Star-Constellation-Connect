@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constellation Connect</title>
+    <style>
+        body { margin: 0; background: #000; overflow: hidden; }
+        .star { position: absolute; width: 5px; height: 5px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff; cursor: pointer; }
+        #canvas { position: absolute; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let points = [];
+        for(let i=0; i<20; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            star.style.left = x + 'px';
+            star.style.top = y + 'px';
+            document.body.appendChild(star);
+            
+            star.addEventListener('click', () => {
+                points.push({x, y});
+                if(points.length > 1) {
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(points[points.length-2].x, points[points.length-2].y);
+                    ctx.lineTo(x, y);
+                    ctx.stroke();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
